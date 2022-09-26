@@ -1,0 +1,19 @@
+function Script(Name,VER)
+   if isfolder(Name) == false then
+     makefolder("//"..Name.."//")
+     writefile("//"..Name.."//Script.Build", VER)
+     makefolder("//"..Name.."//Remotes//")
+   end
+end
+
+function Remote(Name,RemoteName)
+    local contents = readfile("//"..Name.."//Remotes//"..RemoteName..".Remote")
+    --FireRemote
+    loadstring(contents)()
+end    
+
+function Speed(Num) 
+    --SetPlayer Speed 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Num
+end    
+
